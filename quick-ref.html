@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>速查卡片 — 洛克王国：世界 攻略站</title>
+<meta name="description" content="洛克王国：世界 移动端速查卡片。BOSS技能时间轴、材料掉落速查、每日必做清单、藏宝图点位。单屏可看，字号够大，边打边看不用缩放。">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- 打印友好的额外样式（速查卡片的核心场景） -->
+<style>
+@media screen and (max-width: 768px) {
+  .quick-card h4 { font-size: 15px; }
+  .quick-row { padding: 7px 0; }
+  .quick-label { font-size: 14px; }
+  .quick-val { font-size: 15px; }
+  .checklist-item { font-size: 15px; padding: 8px 0; }
+}
+
+/* 每日清单样式 */
+.checklist { list-style: none; }
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checklist-item:last-child { border-bottom: none; }
+
+.checklist-item .checkbox {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-size: 13px;
+  color: transparent;
+}
+
+.checklist-item.done .checkbox {
+  background: var(--accent3);
+  border-color: var(--accent3);
+  color: #fff;
+}
+
+.checklist-item.done .check-text { text-decoration: line-through; color: var(--text-dim); }
+
+.reset-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.reset-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* 材料卡片特殊样式 */
+.material-icon { font-size: 18px; width: 24px; text-align: center; flex-shrink: 0; }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "洛克王国：世界 速查卡片 — BOSS时间轴·材料掉落·每日清单·藏宝图",
+  "description": "移动端优先的速查卡片，BOSS技能时间轴、材料掉落速查、每日必做清单、藏宝图点位。单屏看完，边打边看。",
+  "datePublished": "2026-04-15",
+  "dateModified": "2026-05-16"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://roco-guide.example.com/" },
+    { "@type": "ListItem", "position": 2, "name": "速查卡片", "item": "https://roco-guide.example.com/quick-ref.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">洛克王国：世界 攻略</a>
+    <a href="guide-newbie.html" class="nav-link">新手攻略</a>
+    <a href="guide-boss.html" class="nav-link">BOSS打法</a>
+    <a href="pets.html" class="nav-link">精灵百科</a>
+    <a href="quick-ref.html" class="nav-link active">速查卡片</a>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="搜攻略、精灵、材料…" id="searchInput" autocomplete="off">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" title="切换亮色/暗色模式">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="index.html">首页</a> <span class="sep">›</span> 速查卡片
+  </nav>
+
+  <section style="margin:20px 0 24px;">
+    <h1 style="font-size:clamp(22px,4vw,28px);font-weight:800;color:var(--text-heading);">📱 速查卡片</h1>
+    <p style="color:var(--text-dim);font-size:14px;margin-top:4px;">移动端优先 · 单屏看完 · 字号够大 · 边打边看不用缩放 · <strong>支持打印</strong></p>
+  </section>
+
+  <!-- ===== 每日任务清单 ===== -->
+  <section class="section" id="daily" style="margin-top:20px;">
+    <div class="section-title">📋 每日必做清单 <button class="reset-btn" onclick="resetChecklist('daily-list')">重置</button></div>
+    <div class="section-desc">点击勾选，刷新时自动重置</div>
+
+    <div class="grid">
+      <div class="quick-card">
+        <h4>🎯 必做（经验/货币）</h4>
+        <ul class="checklist" id="daily-list-1">
+          <li class="checklist-item" onclick="this.classList.toggle('done')"><span class="checkbox">✓</span><span class="check-text">登录签到 + 领取每日奖励</span></li>
+          <li class="checklist-item" onclick="this.classList.toggle('done')"><span class="checkbox">✓</span><span class="check-text">完成 3 个日常委托</span></li>
+          <li class="checklist-item" onclick="this.classList.toggle('done')"><span class="checkbox">✓</span><span class="check-text">魔法手册课程全部刷完</span></li>
+          <li class="checklist-item" onclick="this.classList.toggle('done')"><span class="checkbox">✓</span><span class="check-text">跑一遍古币机路线</span></li>
+          <li class="checklist-item" onclick="this.classList.toggle('done')"><span class="checkbox">✓</span><span class="check-text">远行商人买完3个国王球</span></li>
+          <li class="checklist-item" onclick="this.classList.toggle('done')"><span class="checkbox">✓</span><span class="check-text">孵化器放蛋（睡前放12h的）</span></li>
+        </ul>
+      </div>
+
+      <div class="quick-card">
+        <h4>⭐ 建议做（资源积累）</h4>
+        <ul class="checklist" id="daily-list-2">
+          <li class="checklist-item" onclick="this.classList.toggle('done')"><span class="checkbox">✓</span><span class="check-text">港口海滩释放风场（孵蛋加速）</span></li>
+          <li class="checklist-item" onclick="this.classList.toggle('done')"><span class="checkbox">✓</span><span class="check-text">野外抓 3-5 只新精灵（图鉴经验）</span></li>
+          <li class="checklist-item" onclick="this.classList.toggle('done')"><span class="checkbox">✓</span><span class="check-text">赛季委托推进 1 章</span></li>
+          <li class="checklist-item" onclick="this.classList.toggle('done')"><span class="checkbox">✓</span><span class="check-text">检查奇遇盲盒是否触发</span></li>
+          <li class="checklist-item" onclick="this.classList.toggle('done')"><span class="checkbox">✓</span><span class="check-text">看一眼商店刷新了什么</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOSS 技能时间轴卡片 ===== -->
+  <section class="section" id="boss">
+    <div class="section-title">⏱ BOSS 技能时间轴</div>
+    <div class="section-desc">传说精灵固定循环，记住这个就掌握了战斗节奏</div>
+
+    <div class="grid">
+      <div class="quick-card">
+        <h4>🔄 技能循环（7回合一轮）</h4>
+        <div class="quick-row" style="color:var(--text);"><span class="quick-label">回合 1-2</span><span class="quick-val">普通攻击 · 正常输出上增益</span></div>
+        <div class="quick-row"><span class="quick-label" style="color:var(--danger);">回合 3</span><span class="quick-val" style="color:var(--danger);">BOSS蓄力 · <strong>优先驱散/打断</strong></span></div>
+        <div class="quick-row"><span class="quick-label" style="color:var(--danger);">回合 4</span><span class="quick-val" style="color:var(--danger);">AOE大招 · <strong>切坦克防御！</strong></span></div>
+        <div class="quick-row" style="color:var(--accent3);"><span class="quick-label">回合 5-6</span><span class="quick-val" style="color:var(--accent3);">疲软期 · 全力输出窗口</span></div>
+        <div class="quick-row"><span class="quick-label">回合 7</span><span class="quick-val">循环重复</span></div>
+      </div>
+
+      <div class="quick-card">
+        <h4>⚠️ 关键时间点</h4>
+        <div class="quick-row"><span class="quick-label">第3回合结束</span><span class="quick-val" style="color:var(--danger);">→ 必须准备切人</span></div>
+        <div class="quick-row"><span class="quick-label">第4回合</span><span class="quick-val" style="color:var(--danger);">→ 坦克防御姿态</span></div>
+        <div class="quick-row"><span class="quick-label">第5-6回合</span><span class="quick-val" style="color:var(--accent3);">→ 切回输出爆发</span></div>
+        <div class="quick-row"><span class="quick-label">DOT逃课窗口</span><span class="quick-val">→ 第4回合放毒雾</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 材料掉落速查 ===== -->
+  <section class="section" id="material">
+    <div class="section-title">🧱 常用材料掉落速查</div>
+    <div class="section-desc">需要什么材料直接看这里，不用翻长表格</div>
+
+    <div class="grid">
+      <div class="quick-card">
+        <h4>🪙 货币类</h4>
+        <div class="quick-row"><span class="quick-label"><span class="material-icon">💰</span> 洛克贝</span><span class="quick-val">全图怪物掉落 + 日常</span></div>
+        <div class="quick-row"><span class="quick-label"><span class="material-icon">🎫</span> 古币</span><span class="quick-val">古币机 · 海滨遗迹</span></div>
+        <div class="quick-row"><span class="quick-label"><span class="material-icon">🏆</span> 赛季币</span><span class="quick-val">赛季委托 · 日常</span></div>
+      </div>
+
+      <div class="quick-card">
+        <h4>🍎 消耗品</h4>
+        <div class="quick-row"><span class="quick-label"><span class="material-icon">🍫</span> 可可果</span><span class="quick-val">商业街区1号抽屉（120个）</span></div>
+        <div class="quick-row"><span class="quick-label"><span class="material-icon">💊</span> 回复药</span><span class="quick-val">商店购买 · 野外采集</span></div>
+        <div class="quick-row"><span class="quick-label"><span class="material-icon">🥚</span> 精灵蛋</span><span class="quick-val">野外树洞 · 活动奖励</span></div>
+      </div>
+
+      <div class="quick-card">
+        <h4>🔮 稀有道具</h4>
+        <div class="quick-row"><span class="quick-label"><span class="material-icon">👑</span> 国王球</span><span class="quick-val">王国城堡古币机（4个）</span></div>
+        <div class="quick-row"><span class="quick-label"><span class="material-icon">⭐</span> 高级咕噜球</span><span class="quick-val">远行商人 · 活动奖励</span></div>
+        <div class="quick-row"><span class="quick-label"><span class="material-icon">🎁</span> 异色果实</span><span class="quick-val">奇遇盲盒 · 赛季奖励</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 藏宝图点位 ===== -->
+  <section class="section" id="treasure">
+    <div class="section-title">🗺️ 藏宝图点位速查</div>
+    <div class="section-desc">按区域查，包含所需精灵和位置提示</div>
+
+    <div class="grid">
+      <div class="quick-card">
+        <h4>📍 黑水峡</h4>
+        <div class="quick-row"><span class="quick-label">所需精灵</span><span class="quick-val">多多 / 矮脚爬爬</span></div>
+        <div class="quick-row"><span class="quick-label">位置</span><span class="quick-val">传送点边上</span></div>
+      </div>
+
+      <div class="quick-card">
+        <h4>📍 沉船漩涡</h4>
+        <div class="quick-row"><span class="quick-label">所需精灵</span><span class="quick-val">燕尾獭 / 迷你鸟</span></div>
+        <div class="quick-row"><span class="quick-label">位置</span><span class="quick-val">燕尾獭附近</span></div>
+      </div>
+
+      <div class="quick-card">
+        <h4>📍 岚语峰西侧</h4>
+        <div class="quick-row"><span class="quick-label">所需精灵</span><span class="quick-val">雪豆丁 / 呼呼猪</span></div>
+        <div class="quick-row"><span class="quick-label">位置</span><span class="quick-val">悬崖壁附近</span></div>
+      </div>
+
+      <div class="quick-card">
+        <h4>📍 月牙湖岸</h4>
+        <div class="quick-row"><span class="quick-label">所需精灵</span><span class="quick-val">卡卡虫 / 电咩咩</span></div>
+        <div class="quick-row"><span class="quick-label">位置</span><span class="quick-val">小桥草地</span></div>
+      </div>
+
+      <div class="quick-card">
+        <h4>📍 港口驻地</h4>
+        <div class="quick-row"><span class="quick-label">所需精灵</span><span class="quick-val">圆号鱼 / 菠萝</span></div>
+        <div class="quick-row"><span class="quick-label">位置</span><span class="quick-val">需游泳精灵</span></div>
+      </div>
+
+      <div class="quick-card">
+        <h4>💰 古币机白嫖路线</h4>
+        <div class="quick-row"><span class="quick-label">商业街区</span><span class="quick-val">1号抽屉 · 120可可果</span></div>
+        <div class="quick-row"><span class="quick-label">彼得大道</span><span class="quick-val">3号抽屉 · 99万洛克贝</span></div>
+        <div class="quick-row"><span class="quick-label">王国城堡</span><span class="quick-val">4个抽屉 · 4个国王球</span></div>
+        <div class="quick-row"><span class="quick-label">海滨遗迹</span><span class="quick-val">直接捡古币</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 兑换码 ===== -->
+  <section class="section" id="codes">
+    <div class="section-title">🎁 最新兑换码</div>
+    <div class="section-desc">2026年可用 · 复制后进游戏兑换</div>
+
+    <div class="grid">
+      <div class="code-card">
+        <div>
+          <div style="font-size:14px;color:var(--text-dim);margin-bottom:4px;">冠军之夜（必得了不起天分精灵蛋）</div>
+          <span class="code-text">洛神杯冠军之夜</span>
+        </div>
+        <button class="copy-btn" onclick="copyCode(this, '洛神杯冠军之夜')">📋 复制</button>
+      </div>
+
+      <div class="code-card">
+        <div>
+          <div style="font-size:14px;color:var(--text-dim);margin-bottom:4px;">公测福利（咕噜球×10 + 洛克贝×8888 + 可可果×5）</div>
+          <span class="code-text">326做回小洛克</span>
+        </div>
+        <button class="copy-btn" onclick="copyCode(this, '326做回小洛克')">📋 复制</button>
+      </div>
+    </div>
+
+    <div class="tip" style="margin-top:12px;">
+      <strong>兑换：</strong>游戏内 设置 → 兑换码 → 输入 → 确认。注意区分大小写。
+    </div>
+  </section>
+
+  <!-- 关联阅读 -->
+  <section class="section">
+    <h3 style="font-size:15px;font-weight:700;color:var(--text-heading);margin-bottom:8px;">📎 相关阅读</h3>
+    <div class="related-tags">
+      <a href="guide-boss.html">BOSS完整打法攻略 →</a>
+      <a href="guide-newbie.html">新手开荒攻略 →</a>
+      <a href="pets.html">精灵数据百科 →</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>洛克王国：世界 玩家攻略站 · 速查卡片 · 支持打印（Ctrl+P）</p>
+  <p style="margin-top:4px;">数据更新至 2026.05.16</p>
+</footer>
+
+<script>
+// 每日清单：从 localStorage 恢复状态
+function loadChecklist(listId) {
+  const list = document.getElementById(listId);
+  if (!list) return;
+  const saved = JSON.parse(localStorage.getItem('roco-checklist-' + listId) || '[]');
+  list.querySelectorAll('.checklist-item').forEach((item, i) => {
+    if (saved[i]) item.classList.add('done');
+  });
+}
+
+function saveChecklist(listId) {
+  const list = document.getElementById(listId);
+  if (!list) return;
+  const states = [];
+  list.querySelectorAll('.checklist-item').forEach(item => {
+    states.push(item.classList.contains('done'));
+  });
+  localStorage.setItem('roco-checklist-' + listId, JSON.stringify(states));
+}
+
+// 为每个清单绑定点击保存
+document.querySelectorAll('.checklist').forEach(list => {
+  loadChecklist(list.id);
+  list.addEventListener('click', function(e) {
+    const item = e.target.closest('.checklist-item');
+    if (!item) return;
+    // toggle 已经在 onclick 中，这里只负责保存
+    setTimeout(() => saveChecklist(list.id), 50);
+  });
+});
+
+// 每日重置：检查日期，如果日期变了就自动清理
+(function() {
+  const today = new Date().toISOString().slice(0, 10);
+  const lastDate = localStorage.getItem('roco-checklist-date');
+  if (lastDate !== today) {
+    localStorage.setItem('roco-checklist-date', today);
+    document.querySelectorAll('.checklist').forEach(list => {
+      localStorage.removeItem('roco-checklist-' + list.id);
+      list.querySelectorAll('.checklist-item').forEach(item => item.classList.remove('done'));
+    });
+  }
+})();
+
+// 重置按钮
+function resetChecklist(prefix) {
+  document.querySelectorAll('.checklist').forEach(list => {
+    list.querySelectorAll('.checklist-item').forEach(item => item.classList.remove('done'));
+    localStorage.removeItem('roco-checklist-' + list.id);
+  });
+}
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

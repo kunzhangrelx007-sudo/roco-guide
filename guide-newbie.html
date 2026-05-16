@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新手开荒攻略 — 洛克王国：世界 攻略站</title>
+<meta name="description" content="洛克王国：世界 保姆级新手开荒攻略。御三家选择对比、速升30级路线、前期必抓精灵清单、捕捉孵化技巧。前置条件清单 + 失败点标注 + 预计耗时。">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- 结构化数据: Article + HowTo + BreadcrumbList + FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "洛克王国：世界 新手开荒攻略（2026公测版）",
+  "description": "御三家选择、速升30级、前期必抓精灵、捕捉孵化技巧，前置条件 + 失败点 + 时间预估全覆盖。",
+  "datePublished": "2026-03-28",
+  "dateModified": "2026-05-16",
+  "author": { "@type": "Organization", "name": "洛克王国攻略站" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://roco-guide.example.com/" },
+    { "@type": "ListItem", "position": 2, "name": "新手开荒攻略", "item": "https://roco-guide.example.com/guide-newbie.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">洛克王国：世界 攻略</a>
+    <a href="guide-newbie.html" class="nav-link active">新手攻略</a>
+    <a href="guide-boss.html" class="nav-link">BOSS打法</a>
+    <a href="pets.html" class="nav-link">精灵百科</a>
+    <a href="quick-ref.html" class="nav-link">速查卡片</a>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="搜攻略、精灵、材料…" id="searchInput" autocomplete="off">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" title="切换亮色/暗色模式">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- 面包屑 -->
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="index.html">首页</a> <span class="sep">›</span> 新手开荒攻略
+  </nav>
+
+  <article class="guide-card">
+
+    <!-- 攻略头部：标题 + 时间 + 版本 -->
+    <div class="guide-card-header">
+      <div>
+        <h1 style="font-size:clamp(20px,3.5vw,26px);font-weight:800;color:var(--text-heading);">📖 新手开荒攻略</h1>
+        <p style="font-size:13px;color:var(--text-dim);margin-top:2px;">已更新至 S2「狂欢怪谈」· 适用 2026.05 版本</p>
+      </div>
+      <span class="time-badge">⏱ 全文预计阅读 + 实操 45min</span>
+    </div>
+
+    <!-- ===== 前置条件清单 ===== -->
+    <div class="guide-card-body">
+      <div class="prereq-list">
+        <h4>⚠️ 开始前请确认以下条件</h4>
+        <ul>
+          <li>游戏已下载安装（iOS/Android/PC模拟器）</li>
+          <li>已注册并完成账号绑定（建议绑定手机号防丢失）</li>
+          <li>角色等级 ≥ 1（本攻略从创建角色开始）</li>
+          <li>预留至少 45 分钟完整时间</li>
+        </ul>
+      </div>
+
+      <!-- ===== 分段 1：御三家选择 ===== -->
+      <section id="starter" style="margin-bottom:32px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <h2 style="font-size:18px;font-weight:700;color:var(--text-heading);">一、御三家怎么选？</h2>
+          <span class="time-badge">⏱ 本段约 3min</span>
+        </div>
+        <p style="font-size:13px;color:var(--text-dim);margin-bottom:14px;">创建角色后第一件事。选错不致命但影响前期体验，建议看完再选。</p>
+
+        <!-- 多方案标签 -->
+        <div class="solution-tabs">
+          <button class="solution-tab active" onclick="switchSolution(this, 'sol-high')">🔥 高配（推荐）</button>
+          <button class="solution-tab" onclick="switchSolution(this, 'sol-mid')">💧 均衡流</button>
+          <button class="solution-tab" onclick="switchSolution(this, 'sol-safe')">🌿 稳妥流</button>
+        </div>
+
+        <div class="solution-content" id="sol-high">
+          <div class="pet-card" style="margin-bottom:14px;">
+            <div class="pet-header">
+              <div class="pet-avatar">🔥</div>
+              <div class="pet-info">
+                <h4>火花（火系）— 首推</h4>
+                <div style="display:flex;gap:4px;flex-wrap:wrap;"><span class="tag tag-fire">火系</span><span class="tag tag-accent2">⭐⭐⭐⭐⭐</span></div>
+              </div>
+            </div>
+            <div class="pet-body">
+              <div class="pet-stat-row"><span class="pet-stat-label">定位</span><span class="pet-stat-val">高爆发输出</span></div>
+              <div class="pet-stat-row"><span class="pet-stat-label">清图效率</span><span class="pet-stat-val">极高</span></div>
+              <div class="pet-stat-row"><span class="pet-stat-label">PVP强度</span><span class="pet-stat-val">中上</span></div>
+              <div class="pet-stat-row"><span class="pet-stat-label">上手难度</span><span class="pet-stat-val">低</span></div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>优点：</strong>前期清图最快的御三家，技能倍率高，推主线效率最高。<br>
+            <strong>缺点：</strong>后期PVP环境火系容易被水系针对。<br>
+            <strong>适合：</strong>想快速推主线、不喜欢磨蹭的玩家。
+          </div>
+
+          <div class="fail-point">
+            <strong>⚠️ 常见失败点：</strong>新手容易把所有资源都给火花，导致第二只主力输出没资源培养。建议火花 30 级后开始分资源给第二只输出。
+          </div>
+        </div>
+
+        <div class="solution-content" id="sol-mid" style="display:none;">
+          <div class="pet-card" style="margin-bottom:14px;">
+            <div class="pet-header">
+              <div class="pet-avatar">💧</div>
+              <div class="pet-info">
+                <h4>水蓝蓝（水系）— 后期发力</h4>
+                <div style="display:flex;gap:4px;flex-wrap:wrap;"><span class="tag tag-water">水系</span><span class="tag tag-accent2">⭐⭐⭐⭐</span></div>
+              </div>
+            </div>
+            <div class="pet-body">
+              <div class="pet-stat-row"><span class="pet-stat-label">定位</span><span class="pet-stat-val">续航坦克</span></div>
+              <div class="pet-stat-row"><span class="pet-stat-label">清图效率</span><span class="pet-stat-val">中等</span></div>
+              <div class="pet-stat-row"><span class="pet-stat-label">PVP强度</span><span class="pet-stat-val">极高</span></div>
+              <div class="pet-stat-row"><span class="pet-stat-label">上手难度</span><span class="pet-stat-val">中</span></div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>优点：</strong>PVP T0 级别，后期最强御三家。续航能力出色，不容易死。<br>
+            <strong>缺点：</strong>前期清图慢，开荒体验不如火花舒服。<br>
+            <strong>适合：</strong>有长期PVP规划、不介意前期慢一点的玩家。
+          </div>
+        </div>
+
+        <div class="solution-content" id="sol-safe" style="display:none;">
+          <div class="pet-card" style="margin-bottom:14px;">
+            <div class="pet-header">
+              <div class="pet-avatar">🌿</div>
+              <div class="pet-info">
+                <h4>喵喵（草系）— 求稳之选</h4>
+                <div style="display:flex;gap:4px;flex-wrap:wrap;"><span class="tag tag-grass">草系</span><span class="tag tag-accent2">⭐⭐⭐⭐</span></div>
+              </div>
+            </div>
+            <div class="pet-body">
+              <div class="pet-stat-row"><span class="pet-stat-label">定位</span><span class="pet-stat-val">回血生存</span></div>
+              <div class="pet-stat-row"><span class="pet-stat-label">清图效率</span><span class="pet-stat-val">低</span></div>
+              <div class="pet-stat-row"><span class="pet-stat-label">PVP强度</span><span class="pet-stat-val">中</span></div>
+              <div class="pet-stat-row"><span class="pet-stat-label">上手难度</span><span class="pet-stat-val">极低</span></div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>优点：</strong>自带回血，容错率最高，几乎不会翻车。新手友好度最高。<br>
+            <strong>缺点：</strong>输出低，战斗时间长，PVP 环境弱势。<br>
+            <strong>适合：</strong>纯休闲玩家、手残党、不想研究的玩家。
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 分段 2：速升30级 ===== -->
+      <section id="leveling" style="margin-bottom:32px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <h2 style="font-size:18px;font-weight:700;color:var(--text-heading);">二、速升 30 级路线</h2>
+          <span class="time-badge">⏱ 本段约 25min</span>
+        </div>
+        <p style="font-size:13px;color:var(--text-dim);margin-bottom:14px;">30 级解锁核心玩法。按以下顺序走，效率最高。</p>
+
+        <ol class="step-list">
+          <li>
+            <strong>推主线到第一章结束</strong>（约 15min）<br>
+            <span style="font-size:13px;color:var(--text-dim);">主线给的经验最多，没有弯路。遇到打不过的战斗先检查精灵等级是否跟上。</span>
+          </li>
+          <li>
+            <strong>完成魔法手册全部课程</strong>（约 8min）<br>
+            <span style="font-size:13px;color:var(--text-dim);">课程是前期经验大头，全做完直接升 2-3 级。不要跳过！</span>
+          </li>
+          <li>
+            <strong>收集图鉴 — 路上每只新精灵都抓一次</strong><br>
+            <span style="font-size:13px;color:var(--text-dim);">每只新精灵 +100 经验，进化 +600。图鉴是隐藏的经验书，别忽视。</span>
+            <div class="fail-point">
+              <strong>⚠️ 容易忽略：</strong>「了不起的天分」判定也给 +100 经验！抓之前先用星星魔法砸晕提高判定概率。
+            </div>
+          </li>
+          <li>
+            <strong>提前加满好友</strong>（第二章需要）<br>
+            <span style="font-size:13px;color:var(--text-dim);">第二章有好友任务，加好友需要等 5 小时才能生效。提前加了不卡关！</span>
+          </li>
+        </ol>
+
+        <div class="fail-point">
+          <strong>⚠️ 最大翻车点：</strong>第二章好友任务卡关是新手弃坑第一原因。好友必须加满 5 小时后才能完成任务。很多人推到这里发现要等 5 小时直接退游。所以务必<strong>进游戏第一件事就加好友</strong>！
+        </div>
+      </section>
+
+      <!-- ===== 分段 3：前期必抓精灵 ===== -->
+      <section id="catch" style="margin-bottom:32px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <h2 style="font-size:18px;font-weight:700;color:var(--text-heading);">三、前期必抓精灵清单</h2>
+          <span class="time-badge">⏱ 本段约 10min</span>
+        </div>
+
+        <div class="table-wrap" style="margin-bottom:14px;">
+          <table>
+            <thead>
+              <tr>
+                <th>精灵</th>
+                <th>优先级</th>
+                <th>用途</th>
+                <th>性格要求</th>
+                <th>获取难度</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="pets.html">岚鸟</a></td>
+                <td><span class="tag tag-accent2">最高</span></td>
+                <td>跑图神器，PVE/PVP两用</td>
+                <td>加速性格</td>
+                <td>低</td>
+              </tr>
+              <tr>
+                <td><a href="pets.html">音速犬</a></td>
+                <td><span class="tag tag-accent2">最高</span></td>
+                <td>跑图神器，PVE/PVP两用</td>
+                <td>加速性格</td>
+                <td>低</td>
+              </tr>
+              <tr>
+                <td><a href="pets.html">绅士鸡</a></td>
+                <td>高</td>
+                <td>三段跳，地形跨越</td>
+                <td>不限</td>
+                <td>低</td>
+              </tr>
+              <tr>
+                <td><a href="pets.html">炫彩骨龙</a></td>
+                <td>高</td>
+                <td>二段跳，地形跨越</td>
+                <td>不限</td>
+                <td>中</td>
+              </tr>
+              <tr>
+                <td><a href="pets.html">罗隐</a></td>
+                <td>高</td>
+                <td>PVE神宠，冲刺采矿</td>
+                <td>攻击性格</td>
+                <td>中</td>
+              </tr>
+              <tr>
+                <td><a href="pets.html">奇丽花</a></td>
+                <td>中</td>
+                <td>强力AOE，单刷挑战</td>
+                <td>特攻性格</td>
+                <td>中</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fail-point">
+          <strong>⚠️ 性格陷阱：</strong>岚鸟和音速犬必须是<strong>加速性格</strong>，否则速度不够跑图还不如用腿。不是加速性格直接放生重新抓！
+        </div>
+      </section>
+
+      <!-- ===== 分段 4：捕捉 & 孵化技巧 ===== -->
+      <section id="tips" style="margin-bottom:32px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <h2 style="font-size:18px;font-weight:700;color:var(--text-heading);">四、捕捉 & 孵化核心技巧</h2>
+          <span class="time-badge">⏱ 本段约 5min</span>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>🎯 提高捕捉率的标准流程</h3>
+            <ol class="step-list">
+              <li>先用星星魔法砸晕精灵</li>
+              <li>绕到精灵背后</li>
+              <li>从背后发起战斗（背后偷袭判定）</li>
+              <li>眩晕状态 + 背袭 = 捕捉率大幅提升</li>
+            </ol>
+            <div class="fail-point" style="margin-top:10px;">
+              <strong>常见翻车：</strong>正面直接丢球 — 捕捉率极低，浪费国王球。务必先砸晕再绕背。
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>🥚 宠物蛋快速孵化</h3>
+            <ol class="step-list">
+              <li>传送到港口海滩</li>
+              <li>用星星魔法击碎岩石，释放风场</li>
+              <li>骑上飞行坐骑，飘在风场上</li>
+              <li>孵化速度翻倍！</li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3>💚 精灵快速回血</h3>
+            <p>战斗中血线低时，直接输入<strong style="color:var(--accent2);">「救救我」</strong>，瞬间回满血量。这个是游戏内置的急救指令，很多新手不知道！</p>
+          </div>
+
+          <div class="card">
+            <h3>💰 洛克贝使用铁律</h3>
+            <p>优先买<strong>国王球</strong>（远行商人每天限购3个）。不要用洛克贝买普通咕噜球。不要平均培养精灵，资源集中给御三家和主力输出。</p>
+            <div class="fail-point" style="margin-top:10px;">
+              <strong>经典翻车：</strong>新手看见什么买什么，洛克贝花光后买不起国王球。国王球是捕捉传说精灵的唯一手段，没有国王球 = 抓不了传说。
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 关联阅读 ===== -->
+      <section>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text-heading);margin-bottom:8px;">📎 相关阅读</h3>
+        <div class="related-tags">
+          <a href="guide-boss.html">BOSS 打法（高配/低配/逃课） →</a>
+          <a href="pets.html">精灵数据百科 →</a>
+          <a href="quick-ref.html">每日任务速查卡片 →</a>
+          <a href="quick-ref.html#treasure">藏宝图点位速查 →</a>
+        </div>
+      </section>
+
+    </div>
+  </article>
+
+</main>
+
+<footer class="footer">
+  <p>洛克王国：世界 玩家攻略站 · 内容整理自官方及玩家社区</p>
+  <p style="margin-top:4px;">最后更新：2026.05.16 · 适用版本：S2「狂欢怪谈」</p>
+</footer>
+
+<script>
+// 方案切换
+function switchSolution(btn, targetId) {
+  btn.parentElement.querySelectorAll('.solution-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  btn.closest('section').querySelectorAll('.solution-content').forEach(c => c.style.display = 'none');
+  document.getElementById(targetId).style.display = 'block';
+}
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

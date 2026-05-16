@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOSS打法指南 — 洛克王国：世界 攻略站</title>
+<meta name="description" content="洛克王国：世界 传说精灵BOSS打法。高配速杀 / 低配磨血 / DOT逃课三套方案，附BOSS技能时间轴、失败点标注、预计耗时。">
+<link rel="stylesheet" href="css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "洛克王国：世界 传说精灵BOSS打法指南 — 三套方案覆盖全练度",
+  "description": "高配速杀 / 低配磨血 / DOT逃课，附BOSS技能时间轴与失败点标注。",
+  "datePublished": "2026-04-10",
+  "dateModified": "2026-05-16"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://roco-guide.example.com/" },
+    { "@type": "ListItem", "position": 2, "name": "BOSS打法指南", "item": "https://roco-guide.example.com/guide-boss.html" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">洛克王国：世界 攻略</a>
+    <a href="guide-newbie.html" class="nav-link">新手攻略</a>
+    <a href="guide-boss.html" class="nav-link active">BOSS打法</a>
+    <a href="pets.html" class="nav-link">精灵百科</a>
+    <a href="quick-ref.html" class="nav-link">速查卡片</a>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="搜攻略、精灵、材料…" id="searchInput" autocomplete="off">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" title="切换亮色/暗色模式">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="index.html">首页</a> <span class="sep">›</span> BOSS打法指南
+  </nav>
+
+  <article class="guide-card">
+
+    <div class="guide-card-header">
+      <div>
+        <h1 style="font-size:clamp(20px,3.5vw,26px);font-weight:800;color:var(--text-heading);">⚔️ 传说精灵 BOSS 打法指南</h1>
+        <p style="font-size:13px;color:var(--text-dim);margin-top:2px;">S2 赛季 · 三套方案覆盖全练度玩家</p>
+      </div>
+    </div>
+
+    <div class="guide-card-body">
+
+      <!-- 前置条件 -->
+      <div class="prereq-list">
+        <h4>⚠️ 挑战传说BOSS前置条件</h4>
+        <ul>
+          <li>角色等级 ≥ 30</li>
+          <li>至少 1 只主力输出等级 ≥ 35</li>
+          <li>背包中有国王球（至少 5 个）</li>
+          <li>已解锁对应BOSS所在区域</li>
+        </ul>
+      </div>
+
+      <!-- BOSS 技能时间轴 — 速查卡片风格 -->
+      <section style="margin-bottom:28px;">
+        <h2 style="font-size:18px;font-weight:700;color:var(--text-heading);margin-bottom:12px;">⏱ BOSS 技能时间轴</h2>
+        <p style="font-size:13px;color:var(--text-dim);margin-bottom:10px;">传说精灵通常有固定技能循环，记住时间轴可以提前防御。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>回合</th><th>技能</th><th>效果</th><th>应对</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1-2</td><td>普通攻击</td><td>单体伤害</td><td>正常输出，上增益</td></tr>
+              <tr><td>3</td><td><span style="color:var(--danger);font-weight:600;">蓄力技</span></td><td>给自己叠加 3 层攻击 UP</td><td>优先驱散或用控制打断</td></tr>
+              <tr><td>4</td><td><span style="color:var(--danger);font-weight:600;">大招 AOE</span></td><td>全队高额伤害</td><td><strong>必须防御/切坦克挡</strong></td></tr>
+              <tr><td>5-6</td><td>普通攻击</td><td>单体伤害（疲软期）</td><td>全力输出窗口期</td></tr>
+              <tr><td>7</td><td>蓄力 → 大招</td><td>循环重复</td><td>同上</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fail-point" style="margin-top:10px;">
+          <strong>⚠️ 团灭点：</strong>第 4 回合 AOE 大招是最大翻车点。90% 的翻车是因为没在这个回合切防御/切坦克、想贪伤害。<strong>第 3 回合结束就必须准备切人。</strong>
+        </div>
+      </section>
+
+      <!-- 三套方案 -->
+      <section id="solutions" style="margin-bottom:28px;">
+        <h2 style="font-size:18px;font-weight:700;color:var(--text-heading);margin-bottom:4px;">🎯 三套方案，根据练度自选</h2>
+        <p style="font-size:13px;color:var(--text-dim);margin-bottom:14px;">从左到右：练度要求递减，逃课流几乎零练度</p>
+
+        <div class="solution-tabs">
+          <button class="solution-tab active" onclick="switchBossSolution(this, 'boss-high')">⚡ 高配速杀</button>
+          <button class="solution-tab" onclick="switchBossSolution(this, 'boss-low')">🛡 低配磨血</button>
+          <button class="solution-tab" onclick="switchBossSolution(this, 'boss-cheese')">☠️ DOT 逃课</button>
+        </div>
+
+        <!-- 高配速杀 -->
+        <div class="solution-content" id="boss-high">
+          <div class="card" style="margin-top:12px;">
+            <h3>⚡ 高配速杀方案 <span class="time-badge">预计 8-10min</span></h3>
+            <div style="margin-top:8px;">
+              <p style="font-size:13px;color:var(--text-dim);margin-bottom:8px;"><strong style="color:var(--text-heading);">核心思路：</strong>火系主力输出 + 增益辅助 + 坦克抗大招，6-8 回合结束战斗。</p>
+              <p><strong>推荐阵容：</strong></p>
+              <ul style="list-style:none;font-size:13px;">
+                <li>• <strong>火花（火系）Lv.40+</strong> — 主力输出，携带烈焰冲锋</li>
+                <li>• <strong>任意增益辅助 Lv.30+</strong> — 上攻击UP给主力</li>
+                <li>• <strong>水蓝蓝（水系）Lv.35+</strong> — 坦克，负责抗第4回合大招</li>
+              </ul>
+              <p style="font-size:13px;color:var(--text-dim);margin-top:8px;"><strong>打法流程：</strong>第1-2回合增益辅助给火花上攻击UP → 第3回合火花输出 + 辅助驱散BOSS蓄力 → 第4回合切水蓝蓝防御抗大招 → 第5-6回合切回火花全力爆发收尾。</p>
+
+              <div class="fail-point" style="margin-top:10px;">
+                <strong>⚠️ 翻车点：</strong>第4回合如果切人不及时或坦克练度不够，水蓝蓝会被秒。水蓝蓝至少 35 级带防御技能再上。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 低配磨血 -->
+        <div class="solution-content" id="boss-low" style="display:none;">
+          <div class="card" style="margin-top:12px;">
+            <h3>🛡 低配磨血方案 <span class="time-badge">预计 20-25min</span></h3>
+            <div style="margin-top:8px;">
+              <p style="font-size:13px;color:var(--text-dim);margin-bottom:8px;"><strong style="color:var(--text-heading);">核心思路：</strong>不需要高练度输出，用双坦克轮流抗伤害 + 治疗续航，磨到BOSS技能用完。</p>
+              <p><strong>推荐阵容：</strong></p>
+              <ul style="list-style:none;font-size:13px;">
+                <li>• <strong>水蓝蓝（水系）Lv.30+</strong> — 主坦克 + 治疗</li>
+                <li>• <strong>喵喵（草系）Lv.30+</strong> — 副坦克 + 回血</li>
+                <li>• <strong>任意输出 Lv.30+</strong> — 等BOSS疲软期再输出</li>
+              </ul>
+              <p style="font-size:13px;color:var(--text-dim);margin-top:8px;"><strong>打法流程：</strong>全程防御姿态，只在第5-6回合疲软期切换输出。BOSS蓄力放大招时双坦克轮流抗。带足回复道具。</p>
+
+              <div class="fail-point" style="margin-top:10px;">
+                <strong>⚠️ 翻车点：</strong>磨血时间太长（20min+），容易注意力分散错过第4/7回合大招。建议开着技能时间轴对着打。另外回复道具要带够，至少 10 瓶高级回复药。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOT 逃课 -->
+        <div class="solution-content" id="boss-cheese" style="display:none;">
+          <div class="card" style="margin-top:12px;">
+            <h3>☠️ DOT 逃课流（练度无要求）<span class="time-badge">预计 5-8min</span></h3>
+            <div style="margin-top:8px;">
+              <p style="font-size:13px;color:var(--text-dim);margin-bottom:8px;"><strong style="color:var(--text-heading);">核心思路：</strong>利用「毒雾」机制将BOSS增益层数转化为剧毒伤害，无视练度直接秒杀。</p>
+              <p><strong>必需精灵：</strong></p>
+              <ul style="list-style:none;font-size:13px;">
+                <li>• <strong>嘟嘟锅（进化后）</strong> — 学「毒雾」技能</li>
+                <li>• <strong>任意坦克 Lv.20+</strong> — 撑过前3回合即可</li>
+              </ul>
+
+              <ol class="step-list" style="margin-top:10px;">
+                <li>坦克顶住前 3 回合，等 BOSS 叠出 <strong>3 层增益</strong></li>
+                <li>第 3 回合结束时换嘟嘟锅上场</li>
+                <li>第 4 回合嘟嘟锅释放<strong>「毒雾」</strong> — 3 层增益 × 毒雾倍率 = <strong style="color:var(--danger);">直接秒杀</strong></li>
+              </ol>
+
+              <div class="info-box" style="margin-top:10px;">
+                <strong>原理：</strong>毒雾效果为「将目标每层增益转化为固定伤害」。传说BOSS通常在第3回合叠3层攻击UP，毒雾结算 3 层 × 转化倍率，伤害远超BOSS血量上限，直接秒杀。这个机制对所有传说BOSS都有效。
+              </div>
+
+              <div class="fail-point" style="margin-top:10px;">
+                <strong>⚠️ 翻车点：</strong>必须等BOSS叠满 3 层增益再放毒雾。只叠了 1-2 层就放，伤害不够秒不掉。另外嘟嘟锅速度偏慢，如果被BOSS先手秒了就白费。建议带个加速性格的嘟嘟锅，或给嘟嘟锅先上速度UP。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 打完后的操作 -->
+      <section style="margin-bottom:28px;">
+        <h2 style="font-size:18px;font-weight:700;color:var(--text-heading);margin-bottom:10px;">✅ 打完 BOSS 后必做</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>🏆 立刻丢国王球</h3>
+            <p>BOSS倒地后有短暂捕捉窗口，立刻丢国王球！普通球几乎抓不到传说精灵。窗口期很短，别犹豫。</p>
+            <div class="fail-point" style="margin-top:8px;">
+              <strong>⚠️ 惨案：</strong>打完BOSS太激动，截图发群里，回来发现捕捉窗口过了。BOSS要重新打一遍。先抓再截图！
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>🎯 异色判定</h3>
+            <p>捕捉后有概率出现异色（S2赛季16种异色）。如果不是异色，可以放生后重新挑战。但注意每天有挑战次数限制。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 关联阅读 -->
+      <section>
+        <h3 style="font-size:15px;font-weight:700;color:var(--text-heading);margin-bottom:8px;">📎 相关阅读</h3>
+        <div class="related-tags">
+          <a href="pets.html">精灵数据百科 →</a>
+          <a href="guide-newbie.html">新手开荒攻略 →</a>
+          <a href="quick-ref.html">速查卡片（技能时间轴打印版） →</a>
+        </div>
+      </section>
+
+    </div>
+  </article>
+
+</main>
+
+<footer class="footer">
+  <p>洛克王国：世界 玩家攻略站 · 内容整理自官方及玩家社区</p>
+  <p style="margin-top:4px;">最后更新：2026.05.16 · 适用版本：S2「狂欢怪谈」</p>
+</footer>
+
+<script>
+function switchBossSolution(btn, targetId) {
+  btn.parentElement.querySelectorAll('.solution-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  btn.closest('section').querySelectorAll('.solution-content').forEach(c => c.style.display = 'none');
+  document.getElementById(targetId).style.display = 'block';
+}
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

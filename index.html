@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>洛克王国：世界 攻略站 — 新手保姆级指南</title>
+<meta name="description" content="洛克王国：世界攻略站，涵盖新手开荒、精灵图鉴、藏宝图点位、BOSS打法、兑换码等全部攻略内容。S2狂欢怪谈赛季持续更新。">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- 结构化数据: WebSite + BreadcrumbList + Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "洛克王国：世界 攻略站",
+  "url": "https://roco-guide.example.com/",
+  "description": "洛克王国：世界 玩家攻略站，新手开荒指南、精灵图鉴、藏宝地图、BOSS打法、兑换码。",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://roco-guide.example.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">洛克王国：世界 攻略</a>
+    <a href="guide-newbie.html" class="nav-link">新手攻略</a>
+    <a href="guide-boss.html" class="nav-link">BOSS打法</a>
+    <a href="pets.html" class="nav-link">精灵百科</a>
+    <a href="quick-ref.html" class="nav-link">速查卡片</a>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="搜攻略、精灵、材料…" id="searchInput" autocomplete="off">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" title="切换亮色/暗色模式">🌙</button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- 面包屑 -->
+  <nav class="breadcrumb" aria-label="面包屑导航">
+    <a href="index.html">首页</a>
+  </nav>
+
+  <!-- 英雄区 -->
+  <section class="hero">
+    <h1>洛克王国：世界 攻略站</h1>
+    <p>保姆级新手开荒指南 · 精灵图鉴 · 藏宝地图 · 最新兑换码<br>助你快速上手洛克王国开放世界</p>
+    <div class="hero-badges">
+      <span class="badge badge-fire">S2 狂欢怪谈</span>
+      <span class="badge badge-water">3.26 公测上线</span>
+      <span class="badge badge-grass">持续更新中</span>
+    </div>
+  </section>
+
+  <!-- 快速入口：4 个核心板块 -->
+  <section class="section">
+    <div class="section-title">📍 快速导航</div>
+    <div class="section-desc">按场景选择你要看的内容 — 新手、战斗、查数据、边打边看</div>
+
+    <div class="grid">
+      <a href="guide-newbie.html" class="card card-link">
+        <h3>📖 新手开荒攻略</h3>
+        <p>御三家怎么选？怎么速升30级？前期必抓哪些精灵？带前置条件清单 + 失败点标注 + 时间预估，照着走就行。</p>
+        <div class="related-tags">
+          <span class="tag tag-accent">预计耗时 45min</span>
+          <span class="tag tag-accent2">含多方案对比</span>
+        </div>
+      </a>
+
+      <a href="guide-boss.html" class="card card-link">
+        <h3>⚔️ BOSS 打法指南</h3>
+        <p>传说精灵怎么打？高配速杀 / 低配磨血 / DOT逃课三套方案任选。附BOSS技能时间轴、失败点标注。</p>
+        <div class="related-tags">
+          <span class="tag tag-accent">预计耗时 10-25min</span>
+          <span class="tag tag-accent2">3套方案</span>
+        </div>
+      </a>
+
+      <a href="pets.html" class="card card-link">
+        <h3>🐾 精灵数据百科</h3>
+        <p>属性克制 · 技能数据 · 推荐配装 · 获取途径 · 进化链 · 被哪些怪克制。每条数据可点击关联跳转。</p>
+        <div class="related-tags">
+          <span class="tag tag-accent">6只核心精灵</span>
+          <span class="tag tag-accent2">网状关联</span>
+        </div>
+      </a>
+
+      <a href="quick-ref.html" class="card card-link">
+        <h3>📱 速查卡片（移动端优先）</h3>
+        <p>BOSS技能时间轴 · 材料掉落速查 · 每日必做清单 · 藏宝图点位。单屏看完，字号够大，边打边看不用缩放。</p>
+        <div class="related-tags">
+          <span class="tag tag-accent">单屏可看</span>
+          <span class="tag tag-accent2">大字版</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 最新内容 -->
+  <section class="section">
+    <div class="section-title">🆕 最新内容</div>
+    <div class="section-desc">S2「狂欢怪谈」赛季核心变动一览</div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>🤖 机幕方舟 — 免费传说精灵</h3>
+        <p>完成赛季委托第一章即可获得初始形态「钨丝贝贝」。核心特性「拼装传动」：叠加3层积木后主力输出一回合可<strong>2动</strong>，战术价值极高。</p>
+        <div class="related-tags">
+          <a href="pets.html#mech">查看完整数据 →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🎰 奇遇机制改动</h3>
+        <p>S1污染机制<strong>已取消</strong>，改为「幸运惊喜盒」盲盒模式。连续捕捉精灵触发魔力波动，开盒随机出原色/异色精灵。8种赛季奇遇 + 16种异色，赛季后仅能通过孵蛋/果实获取。</p>
+      </div>
+
+      <div class="card">
+        <h3>🎫 通行证精灵二选一</h3>
+        <p><strong>雪怪</strong>（草+冰 · 干扰/站场）vs <strong>爆焰喷喷</strong>（火+机械 · 输出）。<span style="color:var(--danger);font-weight:600;">赛季结束后绝版</span>，谨慎选择。</p>
+        <div class="related-tags">
+          <a href="pets.html#snow">雪怪详情 →</a>
+          <a href="pets.html#blast">爆焰喷喷详情 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门问答 (FAQ 结构化数据) -->
+  <section class="section">
+    <div class="section-title">❓ 热门问题</div>
+    <div class="section-desc">玩家最常搜的问题，直接回答</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>御三家该选谁？</h3>
+        <p><strong>火花（火系）新手首推</strong> — 高爆发，清图效率最高。水蓝蓝偏后期PVP，喵喵容错高但输出低。新手无脑选火花。</p>
+        <div class="related-tags"><a href="guide-newbie.html#starter">查看详细对比 →</a></div>
+      </div>
+
+      <div class="card">
+        <h3>怎么快速升级？</h3>
+        <p>核心就一条：<strong>收集图鉴 = 经验书</strong>。每只新精灵+100经验，进化+600。优先推主线 + 魔法手册，好友提前加满。</p>
+        <div class="related-tags"><a href="guide-newbie.html#leveling">完整升级路线 →</a></div>
+      </div>
+
+      <div class="card">
+        <h3>国王球怎么免费拿？</h3>
+        <p>王国城堡古币机4个抽屉必出<strong>4个国王球</strong>。远行商人每天限购3个，洛克贝别乱花，优先买国王球。</p>
+        <div class="related-tags"><a href="quick-ref.html#treasure">古币机完整路线 →</a></div>
+      </div>
+
+      <div class="card">
+        <h3>传说BOSS打不过怎么办？</h3>
+        <p><strong>DOT逃课流</strong>：嘟嘟锅进化后学「毒雾」，把BOSS增益层数转化为剧毒，直接秒杀。练一个嘟嘟锅，所有传说BOSS都能逃课。</p>
+        <div class="related-tags"><a href="guide-boss.html#cheese">逃课流详细步骤 →</a></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>洛克王国：世界 玩家攻略站 · 内容整理自官方及玩家社区 · 持续更新中</p>
+  <p style="margin-top:4px;">游戏版本：S2「狂欢怪谈」 · 数据更新至 2026.05</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
