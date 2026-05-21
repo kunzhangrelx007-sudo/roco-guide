@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /css/
+Disallow: /js/
+
+Sitemap: https://kunzhangrelx007-sudo.github.io/roco-guide/sitemap.xml
