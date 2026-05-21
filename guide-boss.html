@@ -72,6 +72,17 @@
 
     <div class="guide-card-body">
 
+      <!-- Boss 大图 + 动图演示区 -->
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:20px;">
+        <div class="boss-img-wrap">
+          🐲<br><span style="font-size:13px;opacity:0.6;position:absolute;bottom:12px;">📸 添加传说BOSS截图 800×400px · 替换此占位符</span>
+        </div>
+        <div class="img-placeholder" style="min-height:100%;">
+          <span class="placeholder-icon">🎞️</span>
+          <span class="placeholder-text">📸 添加BOSS大招<br>GIF动图 400×300px</span>
+        </div>
+      </div>
+
       <!-- 前置条件 -->
       <div class="prereq-list">
         <h4>⚠️ 挑战传说BOSS前置条件</h4>
@@ -83,24 +94,42 @@
         </ul>
       </div>
 
-      <!-- BOSS 技能时间轴 — 速查卡片风格 -->
+      <!-- BOSS 技能时间轴 — 可视化版本 -->
       <section style="margin-bottom:28px;">
-        <h2 style="font-size:18px;font-weight:700;color:var(--text-heading);margin-bottom:12px;">⏱ BOSS 技能时间轴</h2>
-        <p style="font-size:13px;color:var(--text-dim);margin-bottom:10px;">传说精灵通常有固定技能循环，记住时间轴可以提前防御。</p>
+        <h2 style="font-size:18px;font-weight:700;color:var(--text-heading);margin-bottom:12px;">⏱ BOSS 技能时间轴 <span class="update-badge">可视化</span></h2>
+        <p style="font-size:13px;color:var(--text-dim);margin-bottom:10px;">传说精灵 7 回合固定循环，记住节奏就能无伤通关</p>
 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>回合</th><th>技能</th><th>效果</th><th>应对</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>1-2</td><td>普通攻击</td><td>单体伤害</td><td>正常输出，上增益</td></tr>
-              <tr><td>3</td><td><span style="color:var(--danger);font-weight:600;">蓄力技</span></td><td>给自己叠加 3 层攻击 UP</td><td>优先驱散或用控制打断</td></tr>
-              <tr><td>4</td><td><span style="color:var(--danger);font-weight:600;">大招 AOE</span></td><td>全队高额伤害</td><td><strong>必须防御/切坦克挡</strong></td></tr>
-              <tr><td>5-6</td><td>普通攻击</td><td>单体伤害（疲软期）</td><td>全力输出窗口期</td></tr>
-              <tr><td>7</td><td>蓄力 → 大招</td><td>循环重复</td><td>同上</td></tr>
-            </tbody>
-          </table>
+        <div class="skill-timeline">
+          <div class="timeline-track">
+            <div class="timeline-phase safe">
+              <span class="phase-round">①</span>
+              <span class="phase-action">普通攻击<br><small>上增益</small></span>
+            </div>
+            <div class="timeline-phase safe">
+              <span class="phase-round">②</span>
+              <span class="phase-action">普通攻击<br><small>正常输出</small></span>
+            </div>
+            <div class="timeline-phase warning">
+              <span class="phase-round">③</span>
+              <span class="phase-action">BOSS蓄力<br><small>⚠️ 驱散/打断</small></span>
+            </div>
+            <div class="timeline-phase danger">
+              <span class="phase-round">④</span>
+              <span class="phase-action">AOE大招!<br><small>🛡 切坦克防御</small></span>
+            </div>
+            <div class="timeline-phase burst">
+              <span class="phase-round">⑤</span>
+              <span class="phase-action">疲软期<br><small>🔥 全力输出</small></span>
+            </div>
+            <div class="timeline-phase burst">
+              <span class="phase-round">⑥</span>
+              <span class="phase-action">疲软期<br><small>🔥 全力输出</small></span>
+            </div>
+            <div class="timeline-phase warning">
+              <span class="phase-round">⑦</span>
+              <span class="phase-action">循环重复<br><small>回①</small></span>
+            </div>
+          </div>
         </div>
 
         <div class="fail-point" style="margin-top:10px;">

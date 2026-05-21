@@ -1,5 +1,38 @@
 /* ===== 洛克王国：世界 攻略站 — 共享脚本 ===== */
 
+// 视频懒加载 — 点击缩略图后加载iframe
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.video-thumb').forEach(function(thumb) {
+    thumb.addEventListener('click', function() {
+      var container = this.nextElementSibling;
+      var iframe = container.querySelector('iframe');
+      if (iframe && iframe.dataset.src) {
+        iframe.src = iframe.dataset.src;
+        iframe.removeAttribute('data-src');
+      }
+      container.style.display = 'block';
+      this.style.display = 'none';
+    });
+  });
+});
+
+// 能力条动画 — 进入可视区域时才加载
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.stat-bar-fill').forEach(function(bar) {
+          bar.style.width = bar.style.width; // 触发CSS transition重绘
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('[class*="stat-bar"]').forEach(function(row) {
+    observer.observe(row.closest('div') || row);
+  });
+})();
+
 // 主题切换
 (function() {
   const saved = localStorage.getItem('roco-theme');
