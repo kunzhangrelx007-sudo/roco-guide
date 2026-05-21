@@ -444,6 +444,55 @@ img { max-width: 100%; height: auto; }
   flex-shrink: 0;
 }
 
+/* 精灵属性头像颜色 */
+.pet-avatar.fire {
+  background: linear-gradient(135deg, #d63031 0%, #e17055 50%, #fab1a0 100%);
+  box-shadow: 0 0 20px rgba(214,48,49,0.3);
+  animation: fireGlow 2s ease-in-out infinite;
+}
+.pet-avatar.water {
+  background: linear-gradient(135deg, #0984e3 0%, #74b9ff 50%, #a4d4ff 100%);
+  box-shadow: 0 0 20px rgba(9,132,227,0.3);
+  animation: waterRipple 2.5s ease-in-out infinite;
+}
+.pet-avatar.grass {
+  background: linear-gradient(135deg, #00b894 0%, #55efc4 50%, #81ecec 100%);
+  box-shadow: 0 0 20px rgba(0,184,148,0.3);
+  animation: grassSway 2s ease-in-out infinite;
+}
+.pet-avatar.mech {
+  background: linear-gradient(135deg, #636e72 0%, #b2bec3 50%, #dfe6e9 100%);
+  box-shadow: 0 0 20px rgba(108,122,137,0.3);
+  animation: mechSpin 3s linear infinite;
+}
+.pet-avatar.ice {
+  background: linear-gradient(135deg, #74b9ff 0%, #a4d4ff 50%, #e0f0ff 100%);
+  box-shadow: 0 0 20px rgba(116,185,255,0.3);
+  animation: iceShine 2s ease-in-out infinite;
+}
+
+@keyframes fireGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(214,48,49,0.3); }
+  50% { box-shadow: 0 0 30px rgba(214,48,49,0.5); }
+}
+@keyframes waterRipple {
+  0%, 100% { box-shadow: 0 0 15px rgba(9,132,227,0.3); transform: scale(1); }
+  50% { box-shadow: 0 0 25px rgba(9,132,227,0.5); transform: scale(1.05); }
+}
+@keyframes grassSway {
+  0%, 100% { box-shadow: 0 0 15px rgba(0,184,148,0.3); }
+  50% { box-shadow: 0 0 28px rgba(0,184,148,0.5); }
+}
+@keyframes mechSpin {
+  0% { box-shadow: 0 0 10px rgba(108,122,137,0.2), 0 0 20px rgba(108,122,137,0.1); }
+  50% { box-shadow: 0 0 25px rgba(108,122,137,0.4), 0 0 40px rgba(108,122,137,0.2); }
+  100% { box-shadow: 0 0 10px rgba(108,122,137,0.2), 0 0 20px rgba(108,122,137,0.1); }
+}
+@keyframes iceShine {
+  0%, 100% { box-shadow: 0 0 18px rgba(116,185,255,0.3); }
+  50% { box-shadow: 0 0 35px rgba(116,185,255,0.6); }
+}
+
 .pet-info h4 { font-size: 14px; font-weight: 600; color: var(--text-heading); margin-bottom: 2px; }
 
 .pet-body { padding: 0 16px 14px; }
